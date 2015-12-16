@@ -1,7 +1,37 @@
-#header {
-	#main-menu{
-		li{
-			list-style: none;
-		}
+// Header Styles
+@import 'variables';
+.site-header {
+	.header-banner{
+		height: 200px;
+		width: 100%;
+		overflow: hidden;
+		background-size: cover;
+		position: relative;
+	}
+	.motorbike-banner-image {
+		position: absolute;
+		width: 100%;
+	}
+	.motorbike-badge {
+		position:absolute;
+		right: 75px;
+	}
+	.site-header-menu{
+		width: 100%;
+		background: #0c0c0c;
+		padding: 20px 10px 20px 30px;
+			li{
+				
+				padding: 0 20px;
+				border-right: 1px solid $off-white;
+
+				a{
+					color: $off-white;
+				}
+			&:last-child {
+				border-right: none;
+				} 
+			}
+
 	}
 }

@@ -19,6 +19,9 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
+		<link rel="stylesheet" href="<?php bloginfo('template_directory');?>/css/style.css">
+	<!-- <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/css/header.css"> -->
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -28,17 +31,10 @@
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="site-header-main">
-				<div class="site-branding">
-					<?php if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php endif;
+				<div class="header-banner">
+					<img class="motorbike-banner-image" src ="<?php bloginfo('template_directory');?>/images/header-image-no-badge.jpg" alt="triumph motorcycle">
+					<img class="motorbike-badge" src ="<?php bloginfo('template_directory');?>/images/triumph-owners-badge.png" alt="triumph motorcycle South Essex Triumph Logo">
 
-					$description = get_bloginfo( 'description', 'display' );
-					if ( $description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo $description; ?></p>
-					<?php endif; ?>
 				</div><!-- .site-branding -->
 
 				<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
