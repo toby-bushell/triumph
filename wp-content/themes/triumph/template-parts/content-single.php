@@ -15,11 +15,41 @@
 
 	<?php twentysixteen_excerpt(); ?>
 
-	<?php twentysixteen_post_thumbnail(); ?>
-
+	
 	<div class="entry-content">
+		<div class="single-featured-image">
+			<?php twentysixteen_post_thumbnail(); ?>
+		</div>
 		<?php
-			the_content();
+		/* CUSTOM FIELDS */
+
+			$meeting_place = get_field('event-location');
+			if ($meeting_place):?>
+					<div class="event-where">
+						<p><?php echo get_field('event-location');?></p>
+					</div>
+			<?php endif; ?>
+	
+		
+			<!--Date Formatting -->
+			<?php $date = get_field('event-date');
+				if($date):
+					?>	<div class="event-when"><?php
+							$event_date = DateTime::createFromFormat('Ymd', get_field('event-date')); ?>
+							<p><?php echo $event_date->format('d F Y');?></p>
+						</div>
+				<?php endif; 
+					
+			the_content();?>
+
+			<div class="gmaps-div">
+				<?php $location = get_field('maps-single');
+
+					if( !empty($location) ): ?>
+						<div class="acf-map">	
+							<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+						</div>
+					<?php endif; 
 
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentysixteen' ) . '</span>',

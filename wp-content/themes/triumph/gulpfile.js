@@ -15,6 +15,8 @@ var gulp  = require('gulp'),
 gulp.task('styles', function() {
     gulp.src('build/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'})).on('error', sass.logError)
+        .pipe(autoprefixer('last 4 versions'))
+		
         .pipe(gulp.dest('./css'))
 });
 

@@ -1,0 +1,187 @@
+// Buddypress Styles
+@import 'variables';
+
+/* Login page */
+
+#buddypress{
+	ul {
+		list-style: none;
+		margin-left: 0;
+	}
+	div#item-header{
+		text-align: right;
+	}
+	div.submit {
+		float: left;
+		padding-top: 10px;
+	}
+	h4 {
+			color: $yellow;
+		}
+
+	.login-widget-area{
+		float: right;
+		width: 40%;
+		padding-top: 0;
+		border: none;
+	.bp-login-widget-register-link{
+			display: none;
+		}
+	}
+	.register-section{
+		width: 40%;
+		float: left;
+	}
+	.login-widget-area, .register-section{
+		@media screen and(max-width: 779px){
+			width: 100%;
+		}
+	}
+	#profile-details-section{
+			display: none;
+	}
+
+	.widget, .register-section {
+		label{
+			padding-top: 10px;
+		}
+
+	}
+	#whats-new-avatar {
+		float: left;
+	}
+	p.activity-greeting{
+		padding: 5px 0;
+	}
+	#whats-new-form {
+		background: $black;
+		padding: 10px;
+	}
+	#whats-new-content{
+		clear: both;
+	}
+	#whats-new-avatar {
+		display: none;
+	}
+	textarea#whats-new {
+		height: 50px;
+	}
+	.activity-item {
+		background: $black;
+		padding: 10px;
+		margin: 30px 0;
+		overflow: hidden;
+	}
+	.activity-avatar, .activity-comments {
+		float: left;
+
+
+	}
+	.activity-content{
+		float: left;
+		padding-left: 10px;
+		width: 70%;
+		@media screen and(max-width: 420px){
+			width: 100%;
+			margin-top: 15px;
+		}
+	}
+	.activity-meta, .activity-header, .acomment-meta, .acomment-options{
+		font-size: 12px;
+	}
+	.activity-inner, .acomment-content{
+		font-size: 16px;
+
+		p{
+			margin: 0;
+		}
+	}
+	.activity-inner {
+		padding: 20px 0;
+		p{
+			color: $yellow;
+		}
+
+	}
+
+	.joined_group {
+		display: none;
+	} 
+	.activity-comments {
+		clear: both;
+		float: right;
+		width: 100%;
+	
+		.acomment-avatar, .ac-reply-avatar{
+			display: none;
+		}
+		.ac-reply-content {
+			padding-top: 5px;
+		}
+		li {
+		border-top: 1px solid $off-white;
+		list-style: none;
+		margin: 0 ;
+		padding:  10px;
+
+	}
+	}
+	.activity-header a, .acomment-meta a{
+		color: $off-white;
+		font-weight: bold;
+	}
+	.activity-wrapper{
+		overflow: hidden;
+		float: left;
+		width: 100%;
+		background: $off-black;
+		padding: 5px 10px 10px 10px;
+		
+	}
+	p.activity-time-since {
+		display: inline-block;
+	}
+}
+
+/* Profile Page */
+
+#item-meta {
+	#item-buttons{
+		a{
+			color: $yellow;
+		}
+	}
+}
+
+/* Membership Request Page */
+
+.requests {
+	#pag-top, #pag-bottom{
+		display: none;
+	}
+	.action {
+		div{
+			
+			a{
+				float: left;
+				padding: 10px 20px;;
+				background: $black;
+				margin: 10px 10px 10px 0;
+				color: $off-white;
+			}
+		}
+	}
+}
+
+/* Register Page */
+
+.error {
+	color: $yellow;
+}
+#register-page {
+	// Email has been sent message to pad away from log in form 
+	p {
+		margin-right: 20px;
+		width: 50%;
+	}
+}

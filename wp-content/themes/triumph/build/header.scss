@@ -7,6 +7,15 @@
 		overflow: hidden;
 		background-size: cover;
 		position: relative;
+		@media screen and (max-width: 480px){
+			height: 125px;
+		}
+		img {
+			display: block;
+			-webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+ 			 filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));		
+		}
+
 	}
 	.motorbike-banner-image {
 		position: absolute;
@@ -15,18 +24,31 @@
 	.motorbike-badge {
 		position:absolute;
 		right: 75px;
+		@media screen and (max-width: 780px){
+			width: 25%;
+			right: 0;
+		}
 	}
 	.site-header-menu{
 		width: 100%;
-		background: #0c0c0c;
-		padding: 20px 10px 20px 30px;
+		background: $black;
+		// padding: 20px 10px 20px 30px;
+		border-bottom: 1px solid $off-white;
+	
 			li{
+				transition: all .2s ease;
+				float: left;
+				border-right: 1px solid $off-black;
+				text-transform: uppercase;
 				
-				padding: 0 20px;
-				border-right: 1px solid $off-white;
-
 				a{
+					padding: 20px 30px;
 					color: $off-white;
+					display: block;
+				&:hover{
+					text-decoration: none;
+					background-color: $off-black;
+				}
 				}
 			&:last-child {
 				border-right: none;
@@ -34,4 +56,71 @@
 			}
 
 	}
+
+	.menu-toggle {
+		padding: 10px 35px 16px 0px;
+		margin: 20px 0 20px 20px;
+		outline: none;
+	}
+	.menu {
+		@media screen and(max-width: 779px ){
+		display: none;
+		}
+	}
+	.mobile-nav {
+		max-height: 0px;
+		overflow: hidden;
+		transition: all .8s ease;
+		li{ 
+				float: none;
+				border-bottom: 1px solid $off-black;
+				border-right: none;
+				
+			}
+	}
+	.mobile-nav.expanded{
+		
+		max-height: 900px;
+		
+		
+		@media screen and(min-width: 779px ){
+			display: none;
+		}
+			
+	}
+
+}
+/* Hamburger animation */
+
+#menu-toggle span, #menu-toggle span:before, #menu-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#menu-toggle span:before {
+  top: -10px;
+}
+#menu-toggle span:after {
+  bottom: -10px; 
+}
+
+#menu-toggle span, #menu-toggle span:before, #menu-toggle span:after {
+  transition: all 500ms ease-in-out;
+}
+#menu-toggle.expanded span {
+  background-color: transparent;
+}
+#menu-toggle.expanded span:before, #menu-toggle.expanded span:after {
+  top: 0;
+}
+#menu-toggle.expanded span:before {
+  transform: rotate(45deg);
+}
+#menu-toggle.expanded span:after {
+  transform: rotate(-45deg);
 }

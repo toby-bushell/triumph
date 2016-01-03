@@ -9,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry-header section-header">
 		<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
 			<span class="sticky-post"><?php _e( 'Featured', 'twentysixteen' ); ?></span>
 		<?php endif; ?>
@@ -18,14 +18,33 @@
 	</header><!-- .entry-header -->
 
 	<?php twentysixteen_excerpt(); ?>
-
+	<div class="article-wrapper">
 	<?php twentysixteen_post_thumbnail(); ?>
 
 	<div class="entry-content">
-		<?php
+			<?php
+		/* CUSTOM FIELDS */
+
+			$meeting_place = get_field('event-location');
+			if ($meeting_place):?>
+					<div class="event-where">
+						<p><?php echo get_field('event-location');?></p>
+					</div>
+			<?php endif; ?>
+	
+		
+			<!--Date Formatting -->
+			<?php $date = get_field('event-date');
+				if($date):
+					?>	<div class="event-when"><?php
+							$event_date = DateTime::createFromFormat('Ymd', get_field('event-date')); ?>
+							<p><?php echo $event_date->format('d F Y');?></p>
+						</div>
+				<?php endif; 
+	
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentysixteen' ),
+				__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'twentysixteen' ),
 				get_the_title()
 			) );
 
@@ -53,5 +72,7 @@
 				'</span>'
 			);
 		?>
+
 	</footer><!-- .entry-footer -->
+	</div>
 </article><!-- #post-## -->
