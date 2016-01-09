@@ -3,6 +3,7 @@
 @import "buddypress";
 @import "footer";
 @import "gallery";
+@import "block";
 
 .site-main.wrapper {
 	overflow: hidden;
@@ -311,6 +312,23 @@ input:hover {
 		width: 100%;
 	}
 
+}
+
+/* Who's Who */
+
+.bio_name:before, .bio_email:before, .bio_number:before {
+	width: 65px;
+	color: $yellow;
+	display: inline-block;
+}
+.bio_name:before {
+	content: 'Name: ';
+}
+.bio_email:before {
+	content: 'Email: ';
+}
+.bio_number:before {
+	content: 'Number: ';
 }
 
 /* Blog Navigation */

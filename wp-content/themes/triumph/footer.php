@@ -24,10 +24,10 @@
 				</nav><!-- .main-navigation -->
 			<?php endif; ?>
 
-
+		<div class="site-inner">
 			<p>South Essex Triumph Owners Website</p>
 			<p class="made-by-boris">Made by <a href="http://www.borisdigital.co.uk" target="_blank">Boris Digital</a></p>
-
+		</div>
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
 </div><!-- .site -->

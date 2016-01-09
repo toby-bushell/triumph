@@ -11,14 +11,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
-
-
-html {
-	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-}
-
 body {
 	margin: 0;
 }
@@ -388,9 +380,6 @@ input[type="search"].search-field {
 }
 
 
-.main-navigation .menu-item-has-children > a {
-	margin-right: 56px;
-}
 
 .dropdown-toggle {
 	background-color: transparent;

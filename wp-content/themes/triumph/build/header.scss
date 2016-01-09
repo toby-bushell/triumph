@@ -90,6 +90,42 @@
 	}
 
 }
+.main-navigation ul ul, ul.sub-menu,.main-navigation ul ul li  {
+	display: none;
+}
+.menu-item-has-children:hover .sub-menu, .menu-item-has-children:hover .sub-menu li{
+	display: block;
+}
+.menu-expanded{
+	display: block !important;
+	li{
+		display: block !important;
+	}
+}
+.menu-item-has-children {
+	position: relative;
+	.sub-menu{
+		position: absolute;
+		left: 0;
+		background: $off-black;
+		z-index: 999;
+		margin: 0;
+		width: 175px;
+		border: 1px solid $black;
+		li{
+			width: 100%;
+			a{
+				padding: 20px 10px 20px 30px;
+
+				&:hover{
+					background: $black;
+				}
+
+			}
+		}
+	}
+}
+
 /* Hamburger animation */
 
 #menu-toggle span, #menu-toggle span:before, #menu-toggle span:after {
