@@ -1,0 +1,174 @@
+// Header Styles
+
+.site-header {
+	.header-banner{
+		height: 200px;
+		width: 100%;
+		overflow: hidden;
+		background-size: cover;
+		position: relative;
+		@media screen and (max-width: 480px){
+			height: 125px;
+		}
+		img {
+			display: block;
+			-webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+ 			 filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));		
+		}
+
+	}
+	.motorbike-banner-image {
+		position: absolute;
+		width: 100%;
+	}
+	.motorbike-badge {
+		position:absolute;
+		right: 75px;
+		@media screen and (max-width: 780px){
+			width: 25%;
+			right: 0;
+		}
+	}
+	.site-header-menu{
+		width: 100%;
+		background: $black;
+		// padding: 20px 10px 20px 30px;
+		border-bottom: 1px solid $off-white;
+	
+			li{
+				transition: all .2s ease;
+				float: left;
+				border-right: 1px solid $off-black;
+				text-transform: uppercase;
+				
+				a{
+					padding: 20px 30px;
+					color: $off-white;
+					display: block;
+				&:hover{
+					text-decoration: none;
+					background-color: $off-black;
+				}
+				}
+			&:last-child {
+				border-right: none;
+				} 
+			}
+
+	}
+
+	.menu-toggle {
+		padding: 10px 35px 16px 0px;
+		margin: 20px 0 20px 20px;
+		outline: none;
+	}
+	.menu {
+		@media screen and(max-width: 779px ){
+		display: none;
+		}
+	}
+	.mobile-nav {
+		max-height: 0px;
+		overflow: hidden;
+		transition: all .8s ease;
+		li{ 
+				float: none;
+				border-bottom: 1px solid $off-black;
+				border-right: none;
+				
+			}
+	}
+	.mobile-nav.expanded{
+		
+		max-height: 900px;
+		
+		
+		@media screen and(min-width: 779px ){
+			display: none;
+		}
+			
+	}
+
+}
+.main-navigation ul ul, ul.sub-menu,.main-navigation ul ul li  {
+	display: none;
+}
+@media screen and(min-width: 779px){
+	.menu-item-has-children:hover .sub-menu, .menu-item-has-children:hover .sub-menu li{
+		display: block;
+	}
+}
+.menu-expanded{
+	display: block !important;
+	li{
+		display: block !important;
+	}
+}
+.menu-item-has-children {
+	position: relative;
+	.sub-menu{
+		position: absolute;
+		left: 0;
+		background: $off-black;
+		z-index: 999;
+		margin: 0;
+		width: 175px;
+		border: 1px solid $black;
+		@media screen and(max-width: 779px){
+			position: relative;
+			width: 100%;
+		}
+		li{
+			width: 100%;
+			a{
+				padding: 20px 10px 20px 30px;
+				@media screen and(max-width: 779px){
+					padding-left: 50px;
+					&:before {
+						content: '-  ';
+					}
+				}
+
+				&:hover{
+					background: $black;
+				}
+
+			}
+		}
+	}
+}
+
+/* Hamburger animation */
+
+#menu-toggle span, #menu-toggle span:before, #menu-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#menu-toggle span:before {
+  top: -10px;
+}
+#menu-toggle span:after {
+  bottom: -10px; 
+}
+
+#menu-toggle span, #menu-toggle span:before, #menu-toggle span:after {
+  transition: all 500ms ease-in-out;
+}
+#menu-toggle.expanded span {
+  background-color: transparent;
+}
+#menu-toggle.expanded span:before, #menu-toggle.expanded span:after {
+  top: 0;
+}
+#menu-toggle.expanded span:before {
+  transform: rotate(45deg);
+}
+#menu-toggle.expanded span:after {
+  transform: rotate(-45deg);
+}

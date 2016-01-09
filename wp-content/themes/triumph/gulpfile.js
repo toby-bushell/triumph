@@ -13,7 +13,7 @@ var gulp  = require('gulp'),
 // });
 
 gulp.task('styles', function() {
-    gulp.src('build/**/*.scss')
+    gulp.src('build/style.scss')
         .pipe(sass({outputStyle: 'compressed'})).on('error', sass.logError)
         .pipe(autoprefixer('last 4 versions'))
 		
@@ -33,7 +33,7 @@ gulp.task('watch', function () {
 	
 livereload.listen();
 	//watch .scss files
-	gulp.watch('build/**/*.scss',['styles']);
+	gulp.watch('build/style.scss',['styles']);
 
 });
 

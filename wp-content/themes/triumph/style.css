@@ -71,8 +71,11 @@ img {
 	text-decoration: inherit;
 	text-transform: none;
 	vertical-align: top;
-}
 
+}
+.pagination .nav-links:after {
+	bottom: -25px;
+}
 
 /**
  * 4.0 - Elements

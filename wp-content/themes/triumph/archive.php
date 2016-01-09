@@ -28,8 +28,10 @@ get_header(); ?>
 			<?php endif; ?>
 
 			<?php
+
 			// Start the loop.
 			while ( have_posts() ) : the_post();
+	
 
 				/*
 				 * Include the Post-Format-specific template for the content.

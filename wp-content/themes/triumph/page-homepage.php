@@ -15,7 +15,7 @@ get_header(); ?>
 					<div class="slider-content">
 
 						<div class="slider-content-text">
-							<h2 class="slider-header"><?php echo $image['caption'];?></h2>
+							<h2 class="content-header"><?php echo $image['caption'];?></h2>
 							<p><?php echo $image['description'];?></p>
 						</div>
 
@@ -88,7 +88,7 @@ get_header(); ?>
 	<div class="section off-black">
 		<h2 class="section-header"><?php the_field('meeting-place');?></h2>
 			<div class="col-md-6 left-section-text">
-				<h3 class="slider-header"><?php the_field('meeting-location');?></h3>
+				<h3 class="content-header"><?php the_field('meeting-location');?></h3>
 				<?php the_field('meeting-place-text');?>
 			</div>
 			<div class="col-md-6">

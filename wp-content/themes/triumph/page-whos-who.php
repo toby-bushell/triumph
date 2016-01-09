@@ -6,8 +6,8 @@
 get_header(); ?>
 
 <div id="primary" class="content-area">
-	<main id="main" class="site-main wrapper" role="main">
-
+	<main id="main" class="site-main wrapper margin-bottom" role="main">
+		<h1 class="content-header no-bottom-margin"><?php the_title();?></h1>
 		<?php 
 			$args = array(
 				'post_type' 	=> 'whos-who',

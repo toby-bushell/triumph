@@ -29,12 +29,21 @@
 
 if( !function_exists('custom_user_login_redirect') ) {
 	function custom_user_login_redirect() {
-	$redirect_to = 'http://localhost/triumph/groups/triumph-owners/';
+	$redirect_to = 'http://localhost:8888/triumph/groups/triumph-owners/';
 	return $redirect_to;
 	}
 	add_filter('login_redirect','custom_user_login_redirect',10,3);
 	}
 
+/* Hide buddpress compulsory pages from admin */
+
+add_filter( 'parse_query', 'exclude_pages_from_admin' );
+function exclude_pages_from_admin($query) {
+    global $pagenow,$post_type;
+    if (is_admin() && $pagenow=='edit.php' && $post_type =='page') {
+        $query->query_vars['post__not_in'] = array('75', '54', '2' ,'56');
+    }
+}
 
 /* Add new Widget area for login page */
 
