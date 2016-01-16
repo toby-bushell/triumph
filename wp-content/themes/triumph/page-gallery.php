@@ -25,12 +25,13 @@ get_header(); ?>
 		<?php $images = get_field('gallery');
 			if ($images): ?>
 
-			<?php $image1= $images[0]; ?>
+			<?php $image1= $images[0]['sizes']['large']; ?>
+			
 				
 					<a href="<?php echo the_permalink(); ?>">
 						<li class="gallery__image-wrapper">
 							
-								<div class="gallery__image fit-parent" style="background-image: url(<?php echo $image1['url'];?>)"/>
+								<div class="gallery__image fit-parent" style="background-image: url(<?php echo $image1;?>)"/>
 							
 							<p class="gallery__title"><?php the_title();?></p>
 						</li>

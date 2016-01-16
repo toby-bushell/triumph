@@ -19,7 +19,7 @@ get_header(); ?>
 				<?php foreach ($images as $image): ?>		
 						<li class="gallery__image-wrapper">
 							<a href="<?php echo $image['url'];?>" data-lightbox="triumph-gallery" data-title="<?php echo $image['caption'];?>">
-								<img class="gallery__image" src="<?php echo $image['url'];?>" alt="<?php echo $image['alt']; ?>"/>
+								<img class="gallery__image" src="<?php echo $image['sizes']['large'];?>" alt="<?php echo $image['alt']; ?>"/>
 							</a>
 							
 						</li>

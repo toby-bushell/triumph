@@ -19,6 +19,8 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main blog-page" role="main">
 
+	
+
 		<?php if ( have_posts() ) : ?>
 
 			<?php if ( is_home() && ! is_front_page() ) : ?>
@@ -29,8 +31,34 @@ get_header(); ?>
 
 			<?php
 
-			// Start the loop.
-			while ( have_posts() ) : the_post();
+	// Start the loop.
+		
+	$category=	get_the_category();
+	
+ 	$category_name =$category[0]->name;
+				 $today = date('Ymd');
+					
+					$args = array(
+					'paged'					 => $paged,
+					'category_name'			=> $category_name,
+					'meta_query' 		=> array(	
+						array(
+							
+							'key' 		=> 'event-date',
+							'compare'	=> '>=',
+							'value' 	=> $today,
+						
+							)
+						),
+				
+					'meta_key' 	=> 'event-date',
+					'orderby'	=> 'meta_value',
+					'order'		=> 'ASC',
+				);
+
+
+		$my_query = new WP_Query( $args );
+		while($my_query->have_posts() ) : $my_query->the_post(); 
 	
 
 				/*

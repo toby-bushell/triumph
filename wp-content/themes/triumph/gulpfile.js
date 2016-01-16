@@ -33,7 +33,7 @@ gulp.task('watch', function () {
 	
 livereload.listen();
 	//watch .scss files
-	gulp.watch('build/style.scss',['styles']);
+	gulp.watch('build/**/*.scss',['styles']);
 
 });
 

@@ -1,13 +1,5 @@
-
-@import "header";
-@import "buddypress";
-@import "footer";
-@import "gallery";
-@import "block";
-
 .site-main.wrapper {
 	overflow: hidden;
-	padding: 0 10px;
 }
 
 .site {
@@ -78,10 +70,17 @@ input:hover {
 .single-item{
 	background: $black;
 	position: relative;
-	
+	.slick-slide{
+		max-height: 450px;
+		img{
+			width: 100%;
+		}
+	}
+
 	.slider-content-image {
 		width: 70%;
 		float: left;
+		max-height: 500px;
 		@media screen and(max-width: 980px){
 			width: 50%;
 		}
@@ -116,16 +115,20 @@ input:hover {
 
 	.slick-dots{
 		position: absolute;
-		right: 22.5%;
+		left: 72.5%;
 		bottom: 0;
 		color: $off-white;
 		margin: 0;
 		font-size: 120px;
 		@media screen and(max-width: 980px){
-			right: 40%;
+			left: 52%;
+			
 		}
 		@media screen and(max-width: 780px){
 			bottom: -30px;
+			left: inherit;
+			width: 100%;
+			text-align: center;
 		}
 		li {
 			list-style: none;
@@ -133,8 +136,10 @@ input:hover {
 			margin-left: 0;
 			float: left;
 			cursor: pointer;
-
-
+			@media screen and(max-width: 780px){
+				float: none;
+				display: inline-block;
+			}
 		}
 	}
 
@@ -142,28 +147,45 @@ input:hover {
 
 /* 3 Grid Section */
 
+.event-when {
+	float: left;
+}
+.event-when--to {
+	float: left;
+	margin-left: 5px;
+}
 .event-where:before{
 	content: 'Location: ';
 	width: 75px;
 	display: inline-block;
 }
+// If also an event to date 
+
+.two-events:before {
+	width: 45px!important;
+}
 .event-when:before{
-	content: 'Where: ';
+	content: 'When: ';
 	width: 75px;
 	display: inline-block;
+}
+.event-when--to:before{
+	content: '-';
+	width: 10px;
 }
 .event-description {
 	min-height: 130px;
 		p {
 			min-height: 95px;
 			padding-right: 25px;
+			clear: both;
 		}
 		a {
 			color: $yellow;
 		}
 }
 
-.event-when p, .event-where p {
+.event-when p, .event-where p, .event-when--to p {
 	display: inline-block;
 	color: $yellow;
 }
@@ -234,6 +256,20 @@ input:hover {
 	margin: 20px 0;
 }
 
+/* Table Styling */
+
+td {
+	padding: 5px 0 5px 5px;
+}
+tr:nth-child(1){
+	color: $yellow;
+	background: $black!important;
+}
+tr:nth-child(2n+1){
+	background: rgba(255,255,255,.05);
+	background: rgba(0,0,0,.2);
+}
+
 /* fixes potential theme css conflict */
 .acf-map img {
    max-width: inherit !important;
@@ -273,6 +309,9 @@ input:hover {
 		margin: 0 0 0 2.5%;
 		float: left;
 		padding-bottom: 10px;
+		p{
+			clear: both;
+		}
 	}
 	.article-wrapper {
 		overflow: hidden;

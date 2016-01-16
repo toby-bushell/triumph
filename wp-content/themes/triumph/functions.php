@@ -29,7 +29,7 @@
 
 if( !function_exists('custom_user_login_redirect') ) {
 	function custom_user_login_redirect() {
-	$redirect_to = 'http://localhost:8888/triumph/groups/triumph-owners/';
+	$redirect_to = 'http://localhost/triumph/groups/triumph-owners/';
 	return $redirect_to;
 	}
 	add_filter('login_redirect','custom_user_login_redirect',10,3);
@@ -86,6 +86,8 @@ if ( ! function_exists( 'twentysixteen_setup' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
+
+
 function twentysixteen_setup() {
 	/*
 	 * Make theme available for translation.

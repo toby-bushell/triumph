@@ -31,7 +31,7 @@ get_header(); ?>
 		</div>
 
 	<!-- Event Section -->
-
+ 
 	<div class="section off-black">
 		<h2 class="section-header"><?php the_field('events-header');?></h2>
 		
@@ -64,15 +64,24 @@ get_header(); ?>
 						<div class="event-where">
 							<p><?php echo get_field('event-location');?></p>
 						</div>
+								<?php $date = get_field('event-date');?>
+								<?php $date1 = get_field('event-to-date');?>
 
 						<div class="event-when">
 								<!--Date Formatting -->
-								<?php $date = get_field('event-date');
-									if($date):
+								
+									<?php if($date):
 											$event_date = DateTime::createFromFormat('Ymd', get_field('event-date')); ?>
 											<p><?php echo $event_date->format('d F Y');?></p>
 									<?php endif; ?>
 						</div>
+						<?php $date1 = get_field('event-to-date');
+							if($date1):
+								?>	<div class="event-when--to event-dates-home"><?php
+										$event_date = DateTime::createFromFormat('Ymd', get_field('event-to-date')); ?>
+										<p><?php echo $event_date->format('d F Y');?></p>
+									</div>
+							<?php endif; ?>
 
 						<div class="event-description">
 							<p><?php echo wp_trim_words (get_the_content(), 25);?></p>

@@ -40,8 +40,18 @@
 							$event_date = DateTime::createFromFormat('Ymd', get_field('event-date')); ?>
 							<p><?php echo $event_date->format('d F Y');?></p>
 						</div>
+				<?php endif; ?>
+
+			<!--End Date Formatting -->
+			<?php $date1 = get_field('event-to-date');
+				if($date1):
+					?>	<div class="event-when event-when--to"><?php
+							$event_date = DateTime::createFromFormat('Ymd', get_field('event-to-date')); ?>
+							<p><?php echo $event_date->format('d F Y');?></p>
+						</div>
 				<?php endif; 
 	
+
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
 				__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'twentysixteen' ),
