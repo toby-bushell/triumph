@@ -18,75 +18,47 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main blog-page" role="main">
+			<?php if ( have_posts() ) : ?>
 
-	
+				<header class="page-header">
+					<?php
+						the_archive_title( '<h1 class="page-title">', '</h1>' );
+					?>
+				</header><!-- .page-header -->
 
-		<?php if ( have_posts() ) : ?>
+				<?php
+				// Start the Loop.
+				while ( have_posts() ) : the_post();
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', get_post_format() );
 
-			<?php
+				// End the loop.
+				endwhile;
 
-	// Start the loop.
-		
-	$category=	get_the_category();
-	
- 	$category_name =$category[0]->name;
-				 $today = date('Ymd');
-					
-					$args = array(
-					'paged'					 => $paged,
-					'category_name'			=> $category_name,
-					'meta_query' 		=> array(	
-						array(
-							
-							'key' 		=> 'event-date',
-							'compare'	=> '>=',
-							'value' 	=> $today,
-						
-							)
-						),
-				
-					'meta_key' 	=> 'event-date',
-					'orderby'	=> 'meta_value',
-					'order'		=> 'ASC',
-				);
+				// Previous/next page navigation.
+				the_posts_pagination( array(
+					'prev_text'          => __( 'Previous page', 'twentysixteen' ),
+					'next_text'          => __( 'Next page', 'twentysixteen' ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+				) );
 
+			// If no content, include the "No posts found" template.
+			else :
+				get_template_part( 'template-parts/content', 'none' );
 
-		$my_query = new WP_Query( $args );
-		while($my_query->have_posts() ) : $my_query->the_post(); 
-	
+			endif;
+			?>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			// End the loop.
-			endwhile;
-
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-				'next_text'          => __( 'Next page', 'twentysixteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-			) );
-
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
 
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
+
+
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
