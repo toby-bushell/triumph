@@ -1,24 +1,8 @@
-.main-list {
-	padding: 0;
-	width: 560px;
-	li{
-		background-color: #ccc;
-		list-style: none;
-		margin: 10px 0;
-
-		div{
-			width: 50px;
-			display: inline-block;
-		}
-		p{	
-			padding: 5px;
-			color: #fff;
-			background-color: #777;
-			margin: 0;
-			display: inline-block;
-			width: 4802apaax;
-		}
-		
-	}
-
-}
+@import "_variables";
+@import "_header";
+@import "_buddypress";
+@import "_footer";
+@import "_gallery";
+@import "_block";
+@import "_styles";
+	

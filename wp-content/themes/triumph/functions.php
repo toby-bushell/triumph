@@ -25,6 +25,48 @@
  * @since Twenty Sixteen 1.0
  */
 
+/* Redirect after login to Group Page */
+
+if( !function_exists('custom_user_login_redirect') ) {
+	function custom_user_login_redirect() {
+	$redirect_to = 'http://localhost/triumph/groups/triumph-owners/';
+	return $redirect_to;
+	}
+	add_filter('login_redirect','custom_user_login_redirect',10,3);
+	}
+
+/* Hide buddpress compulsory pages from admin */
+
+add_filter( 'parse_query', 'exclude_pages_from_admin' );
+function exclude_pages_from_admin($query) {
+    global $pagenow,$post_type;
+    if (is_admin() && $pagenow=='edit.php' && $post_type =='page') {
+        $query->query_vars['post__not_in'] = array('75', '54', '2' ,'56');
+    }
+}
+
+/* Add new Widget area for login page */
+
+function login_widgets_init() {
+	register_sidebar( array(
+			'name' 			=> 	'Log In Widget Area',
+			'id'			=>	'login_widget',
+			'before_widget'	=>	'<div class="login-widget-area">',
+			'after_widget'	=> 	'</div>',
+			'before_title'	=>	'<h4>',
+			'after_title'	=>	'</h4>',
+			) );
+}
+add_action( 'widgets_init', 'login_widgets_init');
+
+
+/* Register logged in and logged out nav menus */
+
+register_nav_menus( array(
+	'logged_out_nav' => 'Logged-out',
+	'logged_in_nav' => 'Logged-in',
+) );
+
 /**
  * Twenty Sixteen only works in WordPress 4.4 or later.
  */
@@ -44,6 +86,8 @@ if ( ! function_exists( 'twentysixteen_setup' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
+
+
 function twentysixteen_setup() {
 	/*
 	 * Make theme available for translation.
@@ -232,6 +276,7 @@ function twentysixteen_scripts() {
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
 
+
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
 
@@ -264,7 +309,7 @@ function twentysixteen_scripts() {
 		wp_enqueue_script( 'twentysixteen-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20150825' );
 	}
 
-	wp_enqueue_script( 'twentysixteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150825', true );
+	// wp_enqueue_script( 'twentysixteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150825', true );
 
 	wp_localize_script( 'twentysixteen-script', 'screenReaderText', array(
 		'expand'   => __( 'expand child menu', 'twentysixteen' ),
@@ -272,6 +317,26 @@ function twentysixteen_scripts() {
 	) );
 }
 add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
+
+
+
+/**
+* Extra Script for Triumph Theme
+*/
+
+function triumph_scripts() {
+		wp_enqueue_script('scripts.js', get_template_directory_uri().'/js/scripts.js', false);
+
+}
+add_action( 'wp_enqueue_scripts', 'triumph_scripts' );
+
+
+function my_jquery_enqueue() {
+   wp_deregister_script('jquery');
+   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://code.jquery.com/jquery-1.11.0.min.js", false, null);
+   wp_enqueue_script('jquery');
+}
+my_jquery_enqueue();
 
 /**
  * Adds custom classes to the array of body classes.
