@@ -15,10 +15,35 @@
  */
 
 get_header(); ?>
+<?php
+
+$year     = get_query_var('year');
+$month     = get_query_var('monthnum');
+$month_padded = sprintf("%02d", $month);
+
+$end_year = $year;
+
+	if ($month_padded === '12' ){
+		$next_month = '01';
+		$end_year = $year + 1;
+	}else {
+		$next_month = $month + 1;
+		$padded_next_month = sprintf("%02d",$next_month);
+	}
+
+
+$first_day = '01';
+
+
+$current_date = $year . $month_padded . $first_day;
+$end_date = $end_year . $padded_next_month .$first_day;
+
+
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main blog-page" role="main">
-			<?php if ( have_posts() ) : ?>
+
 
 				<header class="page-header">
 					<?php
@@ -26,19 +51,49 @@ get_header(); ?>
 					?>
 				</header><!-- .page-header -->
 
-				<?php
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
 
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', get_post_format() );
+							<?php
+							// Start the loop.
 
-				// End the loop.
-				endwhile;
+
+								 $today = $current_date;
+									$args = array(
+									'paged'					 => $paged,
+
+									'meta_query' 		=> array(
+										array(
+											'key' 		=> 'event-date',
+											'compare'	=> '>',
+											'value' 	=> $today,
+											),
+											array(
+												'key'		=>	'event-date',
+												'compare' => '<',
+												'value' => $end_date,
+ 											)
+										),
+									'meta_key' 	=> 'event-date',
+									'orderby'	=> 'meta_value',
+									'order'		=> 'ASC',
+								);
+
+
+						$my_query = new WP_Query( $args );
+
+						while($my_query->have_posts() ) : $my_query->the_post();
+
+
+
+								/*
+								 * Include the Post-Format-specific template for the content.
+								 * If you want to override this in a child theme, then include a file
+								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+								 */
+								get_template_part( 'template-parts/content', get_post_format() );
+
+							// End the loop.
+							endwhile; wp_reset_query();
+
 
 				// Previous/next page navigation.
 				the_posts_pagination( array(
@@ -48,10 +103,8 @@ get_header(); ?>
 				) );
 
 			// If no content, include the "No posts found" template.
-			else :
-				get_template_part( 'template-parts/content', 'none' );
 
-			endif;
+
 			?>
 
 
