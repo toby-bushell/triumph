@@ -53,10 +53,8 @@
 	
 
 			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'twentysixteen' ),
-				get_the_title()
-			) );
+			the_content('',FALSE,'');?>
+			<a href= "<?php the_permalink();?>">Read More</a> <?php
 
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentysixteen' ) . '</span>',

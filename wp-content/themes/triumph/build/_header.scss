@@ -34,9 +34,9 @@
 		background: $black;
 		// padding: 20px 10px 20px 30px;
 		border-bottom: 1px solid $off-white;
-	
+		
 			li{
-				transition: all .2s ease;
+				
 				float: left;
 				border-right: 1px solid $off-black;
 				text-transform: uppercase;
@@ -70,7 +70,7 @@
 	.mobile-nav {
 		max-height: 0px;
 		overflow: hidden;
-		transition: all .8s ease;
+		
 		li{ 
 				float: none;
 				border-bottom: 1px solid $off-black;

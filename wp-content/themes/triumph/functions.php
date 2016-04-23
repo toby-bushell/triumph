@@ -55,7 +55,7 @@ function login_widgets_init() {
 			'after_widget'	=> 	'</div>',
 			'before_title'	=>	'<h4>',
 			'after_title'	=>	'</h4>',
-			) );	
+			) );
 }
 add_action( 'widgets_init', 'login_widgets_init');
 
@@ -321,7 +321,7 @@ add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
 
 
 /**
-* Extra Script for Triumph Theme 
+* Extra Script for Triumph Theme
 */
 
 function triumph_scripts() {

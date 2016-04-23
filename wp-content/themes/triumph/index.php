@@ -29,18 +29,18 @@ get_header(); ?>
 
 			<?php
 			// Start the loop.
-			
+
 				 $today = date('Ymd');
-					
+
 					$args = array(
 					'paged'					 => $paged,
-					
-					'meta_query' 		=> array(	
+
+					'meta_query' 		=> array(
 						array(
 							'key' 		=> 'event-date',
 							'compare'	=> '>=',
 							'value' 	=> $today,
-						
+
 							)
 						),
 					'meta_key' 	=> 'event-date',
@@ -50,9 +50,9 @@ get_header(); ?>
 
 
 		$my_query = new WP_Query( $args );
-		while($my_query->have_posts() ) : $my_query->the_post(); 
+		while($my_query->have_posts() ) : $my_query->the_post();
 
-			
+
 
 				/*
 				 * Include the Post-Format-specific template for the content.
@@ -62,7 +62,7 @@ get_header(); ?>
 				get_template_part( 'template-parts/content', get_post_format() );
 
 			// End the loop.
-			endwhile; wp_reset_query(); 
+			endwhile; wp_reset_query();
 
 			// Previous/next page navigation.
 			the_posts_pagination( array(

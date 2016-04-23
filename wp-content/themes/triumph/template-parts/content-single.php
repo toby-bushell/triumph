@@ -16,7 +16,7 @@
 	<?php twentysixteen_excerpt(); ?>
 
 	
-	<div class="entry-content">
+	<div class="entry-content single-post">
 		<div class="single-featured-image">
 			<?php twentysixteen_post_thumbnail(); ?>
 		</div>
@@ -38,8 +38,17 @@
 							$event_date = DateTime::createFromFormat('Ymd', get_field('event-date')); ?>
 							<p><?php echo $event_date->format('d F Y');?></p>
 						</div>
+				<?php endif; ?>
+													
+					<!--End Date Formatting -->
+			<?php $date1 = get_field('event-to-date');
+				if($date1):
+					?>	<div class="event-when event-when--to"><?php
+							$event_date = DateTime::createFromFormat('Ymd', get_field('event-to-date')); ?>
+							<p><?php echo $event_date->format('d F Y');?></p>
+						</div>
 				<?php endif; 
-					
+	
 			the_content();?>
 
 			<div class="gmaps-div">
@@ -60,9 +69,6 @@
 				'separator'   => '<span class="screen-reader-text">, </span>',
 			) );
 
-			if ( '' !== get_the_author_meta( 'description' ) ) {
-				get_template_part( 'template-parts/biography' );
-			}
 		?>
 	</div><!-- .entry-content -->
 

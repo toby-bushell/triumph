@@ -69,7 +69,7 @@
 			do_action( 'bp_before_account_details_fields' ); ?>
 
 			<div class="register-section" id="basic-details-section">
-				
+
 
 				<?php /***** Basic Account Details ******/ ?>
 
@@ -347,7 +347,7 @@
 			 */
 			do_action( 'bp_before_registration_submit_buttons' ); ?>
 
-		
+
 
 			<?php
 
@@ -406,7 +406,7 @@
 		</form>
 
 	</div>
-	
+
 
 	<?php
 

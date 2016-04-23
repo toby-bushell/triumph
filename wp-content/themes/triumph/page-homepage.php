@@ -84,7 +84,7 @@ get_header(); ?>
 							<?php endif; ?>
 
 						<div class="event-description">
-							<p><?php echo wp_trim_words (get_the_content(), 25);?></p>
+							<p><?php echo wp_trim_words (get_the_content('',FALSE,''), 25);?></p>
 							<a href= "<?php the_permalink();?>">Read More</a> 
 						</div>
 				</div>

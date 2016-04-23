@@ -14,7 +14,12 @@
 .site-header-main {
 	background: $black;
 }
+#main {
 
+	p{
+		font-size: 15px;
+	}
+}
 /* Sticky Footer */
 
 html, body {
@@ -25,7 +30,7 @@ html, body {
 	position: inherit;
 	  min-height: 100%;
  	 /* equal to footer height */
- 	 margin-bottom: -75px; 
+ 	 margin-bottom: -75px;
 }
 .site:after{
 	  content: "";
@@ -122,7 +127,7 @@ input:hover {
 		font-size: 120px;
 		@media screen and(max-width: 980px){
 			left: 52%;
-			
+
 		}
 		@media screen and(max-width: 780px){
 			bottom: -30px;
@@ -159,7 +164,7 @@ input:hover {
 	width: 75px;
 	display: inline-block;
 }
-// If also an event to date 
+// If also an event to date
 
 .two-events:before {
 	width: 45px!important;
@@ -194,13 +199,16 @@ input:hover {
 	background: $off-black;
 	box-sizing: border-box;
 	padding: 15px;
+		p{
+			font-size: 14px!important;
+		}
 }
 @media screen and (min-width: 992px ){
 	.col-md-4:nth-of-type(3) .event-3-grid {
 		margin: 0 20px 0 0px;
 	}
 	.col-md-4:nth-of-type(2) {
-		
+
 	}
 	.col-md-4:nth-of-type(2) .event-3-grid{
 		margin: 0 10px;
@@ -251,9 +259,13 @@ input:hover {
 }
 .acf-map {
 	width: 100%;
-	height: 400px;
+	height: 300px;
 	border: #ccc solid 1px;
-	margin: 20px 0;
+	margin: 30px 0;
+}
+.off-black .acf-map{
+	width: 90%;
+	
 }
 
 /* Table Styling */
@@ -294,10 +306,30 @@ tr:nth-child(2n+1){
 		}
 	}
 }
+
+// Hide Certain items to make navigation easier and avoid confusion
+
+.author.vcard{
+	display: none;
+}
+.single-post{
+	p{
+		clear: left;
+	}
+	.author{
+		display: none;
+	}
+}
+ul#wp-admin-bar-top-secondary {
+	display: none;
+}
 .site-main.blog-page{
 	width: 75%;
 	float: left;
+	padding-right: 0;
+	padding-left: 0;
 	padding-top: 30px;
+
 	@media screen and(max-width: 980px){
 		width: 65%;
 	}
@@ -332,7 +364,7 @@ tr:nth-child(2n+1){
 			max-width: 100%;
 		}
 		}
-		
+
 	.entry-footer{
 		clear:both;
 		text-align: right;
@@ -378,7 +410,7 @@ tr:nth-child(2n+1){
 	content: 'Email: ';
 }
 .bio_number:before {
-	content: 'Number: ';
+	content: 'Tel: ';
 }
 
 /* Blog Navigation */
@@ -402,7 +434,7 @@ aside#secondary {
 			list-style: none;
 			margin: 0;
 			li{
-				a{	
+				a{
 					margin-top: 10px;
 					display: block;
 					color: $yellow;
