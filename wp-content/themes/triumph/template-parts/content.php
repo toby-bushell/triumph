@@ -31,8 +31,8 @@
 						<p><?php echo get_field('event-location');?></p>
 					</div>
 			<?php endif; ?>
-	
-		
+
+
 			<!--Date Formatting -->
 			<?php $date = get_field('event-date');
 				if($date):
@@ -49,13 +49,16 @@
 							$event_date = DateTime::createFromFormat('Ymd', get_field('event-to-date')); ?>
 							<p><?php echo $event_date->format('d F Y');?></p>
 						</div>
-				<?php endif; 
-	
+				<?php endif;
+
 
 			/* translators: %s: Name of current post */
 			the_content('',FALSE,'');?>
-			<a href= "<?php the_permalink();?>">Read More</a> <?php
 
+			<?php
+				if($date):?>
+					<a href= "<?php the_permalink();?>">Read More</a>
+				<?php endif;
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentysixteen' ) . '</span>',
 				'after'       => '</div>',
