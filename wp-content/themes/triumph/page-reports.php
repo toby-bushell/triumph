@@ -10,7 +10,7 @@ get_header(); ?>
 		<?php
 			$args = array(
 				'post_type' 	=> 'reports',
-				'order' 		=> 'ASC',
+				'order' 		=> 'DESC',
 				'nopaging' 		=> false,
 				'post_status'	=> 'publish',
 				);
