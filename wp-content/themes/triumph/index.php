@@ -48,7 +48,6 @@ get_header(); ?>
 					'order'		=> 'ASC',
 				);
 
-
 		$my_query = new WP_Query( $args );
 		while($my_query->have_posts() ) : $my_query->the_post();
 
