@@ -1,0 +1,42 @@
+// Footer Styles
+
+.site-footer{
+	text-align: center;
+	background: $black;
+	padding: 15px 30px;
+	overflow: hidden;
+	@media screen and(max-width: 420px){
+		height: auto !important;
+	} 
+}
+	.made-by-boris{
+		text-align: right;
+		float: right;
+
+	a{
+		color: #ccae4e;
+	}
+	p{
+		float: left;
+		display: inline-block;
+	}
+}
+.footer-content__section{
+	width: 33%;
+	float: left;
+	@media screen and(max-width: 420px){
+		width: 100%;
+		text-align: center;
+		padding: 5px 0;
+	}
+}
+.footer-content_section--social{
+	color: $off-white;
+	text-align: center;
+	img{
+		width: 25px;
+	}
+}
+.footer-content_section--left{
+	text-align: left;
+}
