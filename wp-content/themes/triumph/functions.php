@@ -459,8 +459,20 @@ function twentysixteen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 add_filter( 'wp_get_attachment_image_attributes', 'twentysixteen_post_thumbnail_sizes_attr', 10 , 3 );
 
 function my_acf_init() {
-	
-	acf_update_setting('google_api_key', 'AIzaSyBnVd0iXPLQ2XldQ6kkxbuANY1b3eN519U');
+  $key = the_field('field_name','option');
+  
+	acf_update_setting('google_api_key', $key);
 }
 
 add_action('acf/init', 'my_acf_init');
+
+
+if( function_exists('acf_add_options_page') ) {
+
+  acf_add_options_page(array(
+      'page_title'  => 'Site Options',
+      'menu_title'  => 'Site Options',
+      'menu_slug'   => 'Site-Options',
+  ));
+
+}
