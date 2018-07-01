@@ -40,6 +40,8 @@ wp-content/backups/
 wp-content/languages/*
 wp-content/languages/themes
 
+wp-content/plugins/advanced-custom-fields-pro/
+
 # wpengine specific
 .smushit-status
 .gitattributes
