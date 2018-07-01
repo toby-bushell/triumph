@@ -10,7 +10,10 @@ get_header(); ?>
     <div class="container--slim">
     <h1 class="content-header no-bottom-margin"><?php the_title();?></h1>
 
-      <?php 
+    	<?php while ( have_posts() ) : the_post(); 
+        the_content();
+      endwhile; 
+    
         $args = array(
           'post_type' 	=> 'items',
           'order' 		=> 'ASC',
@@ -29,7 +32,7 @@ get_header(); ?>
             $name	= get_field('for_sale_contact_name'); 
             $images	= get_field('for_sale_images'); 
           ?>
-          
+
           <div class="blocks blocks--1column">
 
             <p class="blocks__title"><?php the_title();?></p>
