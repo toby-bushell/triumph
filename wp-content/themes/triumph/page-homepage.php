@@ -65,21 +65,17 @@ get_header(); ?>
 							<p><?php echo get_field('event-location');?></p>
 						</div>
 								<?php $date = get_field('event-date');?>
-								<?php $date1 = get_field('event-to-date');?>
 
 						<div class="event-when">
 								<!--Date Formatting -->
-
-									<?php if($date):
-											$event_date = DateTime::createFromFormat('Ymd', get_field('event-date')); ?>
-											<p><?php echo $event_date->format('d F Y');?></p>
+									<?php if($date):?>
+                      <p><?php echo $date;?></p>
 									<?php endif; ?>
 						</div>
 						<?php $date1 = get_field('event-to-date');
-							if($date1):
-								?>	<div class="event-when--to event-dates-home"><?php
-										$event_date = DateTime::createFromFormat('Ymd', get_field('event-to-date')); ?>
-										<p><?php echo $event_date->format('d F Y');?></p>
+              if($date1): ?>	
+                <div class="event-when--to event-dates-home">
+										<p><?php echo $date1;?></p>
 									</div>
 							<?php endif; ?>
 
@@ -140,8 +136,8 @@ get_header(); ?>
 </script>
 
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnVd0iXPLQ2XldQ6kkxbuANY1b3eN519U"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/styles.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/slick/slick.js"></script>
 <?php get_footer(); ?>

@@ -19,10 +19,10 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
-	<link rel="stylesheet" href="<?php bloginfo('template_directory');?>/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/slick/slick.css"/>
-		<link rel="stylesheet" href="<?php bloginfo('template_directory');?>/css/style.css">
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<!-- <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/slick/slick.css"/>
+  <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 	<!-- <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/css/header.css"> -->
 
@@ -49,26 +49,9 @@
 					<div id="site-header-menu" class="site-header-menu">
 						
 							<nav id="site-navigation" class="main-navigation" role="navigation">
-								<?php	
-								if (is_user_logged_in()){
-
-									 wp_nav_menu(array( 'menu' => 'logged-in' ) );
-									  wp_nav_menu(array( 'menu' => 'logged-in', 'menu_class' => 'mobile-nav') );
-
-								} else {
-										 wp_nav_menu( array( 'menu' => 'logged-out' ) );
-										 wp_nav_menu(array( 'menu' => 'logged-out', 'menu_class' => 'mobile-nav') );
-										// 'theme_location' => 'primary',
-										// 'menu_class'     => 'primary-menu',
-									
-								}
-								
-									 // wp_loginout(); 
-									
-										
-
-								
-								
+								<?php					
+                  wp_nav_menu( array( 'menu' => 'logged-out' ) );
+                  wp_nav_menu(array( 'menu' => 'logged-out', 'menu_class' => 'mobile-nav') );
 								?>
 							</nav><!-- .main-navigation -->
 					

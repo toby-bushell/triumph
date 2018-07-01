@@ -36,18 +36,16 @@
 			<!--Date Formatting -->
 			<?php $date = get_field('event-date');
 				if($date):
-					?>	<div class="event-when"><?php
-							$event_date = DateTime::createFromFormat('Ymd', get_field('event-date')); ?>
-							<p><?php echo $event_date->format('d F Y');?></p>
+					?>	<div class="event-when">
+							<p><?php echo $date;?></p>
 						</div>
 				<?php endif; ?>
 
 			<!--End Date Formatting -->
 			<?php $date1 = get_field('event-to-date');
 				if($date1):
-					?>	<div class="event-when event-when--to"><?php
-							$event_date = DateTime::createFromFormat('Ymd', get_field('event-to-date')); ?>
-							<p><?php echo $event_date->format('d F Y');?></p>
+          ?>	<div class="event-when event-when--to">
+							<p><?php echo $date1;?></p>
 						</div>
 				<?php endif;
 

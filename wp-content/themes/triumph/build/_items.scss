@@ -1,0 +1,32 @@
+.items-single {
+  padding: 40px 0;
+  background-color: $black;
+  margin-bottom: 40px;
+
+  h3 {
+    font-size: 18px;
+  }
+
+  img {
+    margin: 0;
+  }
+}
+
+.items-single__wrapper {
+  display: flex;
+
+  @media screen and(max-width: 779px){
+    display: block;
+  }
+}
+
+.single-post__summary {
+  padding-right: 20px;
+  margin-bottom: 20px;
+}
+
+.single-post__full {
+  h3 {
+    font-size: 18px;
+  }
+}

@@ -390,6 +390,8 @@ ul#wp-admin-bar-top-secondary {
 		}
 	}
 }
+
+
 .sidebar.widget-area{
 	width: 20%;
 	float: right;
@@ -449,4 +451,10 @@ aside#secondary {
 			}
 		}
 	}
+}
+
+.container--slim {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
 }

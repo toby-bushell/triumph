@@ -18,19 +18,26 @@ get_header(); ?>
 		
 		<?php
 		// Start the loop.
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) : the_post(); ?>
 
-			// Include the page content template.
-			get_template_part( 'template-parts/content', 'page' );
+      <div class="container--slim">
+        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+      </div>
 
+      <?php
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) {
 				comments_template();
-			}
+      }
+      
+      get_template_part( 'template-parts/content', 'page-builder' );
+
 
 			// End of the loop.
 		endwhile;
 		?>
+    
+    
 
 	</main><!-- .site-main -->
 

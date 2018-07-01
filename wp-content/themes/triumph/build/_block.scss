@@ -1,21 +1,32 @@
-// Block BEM Element 
+
+.block-container {
+  
+}
 
 .blocks {
 	background: $black;
 	margin-top: 30px;
-	overflow: hidden;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 .blocks__image{
 	float: left;
 	padding: 20px;
-	max-width: 150px;
 	height: 150px;
 	overflow: hidden;
 	@media screen and(max-width: 420px){
 			max-width: 75%;
 			padding: 20px 0 0 10px;
 		}
-}
+
+    &--right {
+      float: right;
+      width: 250px;
+      max-width: 250px;
+      height: auto;
+    }
+  }
+
 .blocks__title {
 	padding: 10px;
 	background: $off-white;
@@ -30,15 +41,24 @@
 		}
 }
 .blocks__content{
-	padding-top: 20px;
+	padding: 20px;
 	@media screen and(max-width: 420px){
 			clear:both;
 			padding-left: 10px;
-		}
+    }
+    
+  span {
+    color: $yellow;
+  }
 }
 .blocks__text {
 	margin-bottom: 5px;
 }
+
+.block-read-more {
+  display: block;
+}
+
 .blocks--2column{
 	float: left;
 	width: 47.5%;
@@ -51,4 +71,41 @@
 .blocks--2column:nth-of-type(2n+2)
 {
 	float: right;
+}
+
+.block-read-more {
+
+}
+
+// Item selling block
+.blocks__seller {
+  color: $yellow;
+
+  &:before{
+    content: 'Seller: ';
+    display: inline-block;
+    margin-right: 10px;
+    color: $off-white;
+  }
+}
+
+.blocks__price {
+  color: $yellow;
+
+  &:before{
+    content: 'Price: ';
+    display: inline-block;
+    margin-right: 10px;
+    color: $off-white;
+  }
+}
+.blocks__email {
+  color: $yellow;
+
+  &:before{
+    content: 'Contact: ';
+    display: inline-block;
+    margin-right: 10px;
+    color: $off-white;
+  }
 }

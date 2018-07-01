@@ -65,8 +65,10 @@ add_action( 'widgets_init', 'login_widgets_init');
 
 register_nav_menus( array(
 	'logged_out_nav' => 'Logged-out',
-	'logged_in_nav' => 'Logged-in',
 ) );
+
+
+
 
 /**
  * Twenty Sixteen only works in WordPress 4.4 or later.
@@ -455,3 +457,10 @@ function twentysixteen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 	return $attr;
 }
 add_filter( 'wp_get_attachment_image_attributes', 'twentysixteen_post_thumbnail_sizes_attr', 10 , 3 );
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyBnVd0iXPLQ2XldQ6kkxbuANY1b3eN519U');
+}
+
+add_action('acf/init', 'my_acf_init');

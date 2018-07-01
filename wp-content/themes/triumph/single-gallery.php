@@ -31,24 +31,6 @@ get_header(); ?>
 	</ul>
 
 
-<!-- 		<?php $images = get_field('gallery');
-			if ($images): ?>
-			
-				<ul class="gallery">
-					<?php foreach ($images as $image): ?>
-						<li class="gallery__image-wrapper">
-							<a href="<?php echo $image['url']; ?>" data-lightbox="triumph-gallery" data-title="<?php echo $image['caption']; ?>">
-								<img class="gallery__image" src="<?php echo $image['url'];?>" alt="<?php echo $image['alt']; ?>"/>
-							</a>
-						
-						</li>
-					<?php endforeach ; ?>
-				</ul>
-		
-			<?php endif; ?>
- -->
-
-
 	</main>
 </div><!-- .content-area -->
 <script src="<?php bloginfo('template_directory');?>/js/lightbox.min.js"></script>
