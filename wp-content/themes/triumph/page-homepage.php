@@ -135,8 +135,9 @@ get_header(); ?>
 	});
 </script>
 
+<?php $key =  get_field('google_api_key', 'options'); ?>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnVd0iXPLQ2XldQ6kkxbuANY1b3eN519U"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $key;?>"></script>
 
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/styles.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/slick/slick.js"></script>
