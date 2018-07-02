@@ -1,7 +1,80 @@
 {
     "key": "group_5b38c6b327634",
-    "title": "blog",
-    "fields": false,
+    "title": "Events",
+    "fields": [
+        {
+            "key": "field_5675a0e8c2073",
+            "label": "event-location",
+            "name": "event-location",
+            "type": "text",
+            "instructions": "Event Location",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5675925f67ec9",
+            "label": "event-date",
+            "name": "event-date",
+            "type": "date_picker",
+            "instructions": "Date for Event",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "first_day": 1,
+            "return_format": "d\/m\/Y",
+            "display_format": "d\/m\/Y"
+        },
+        {
+            "key": "field_5b3a783eddfd3",
+            "label": "event-to-date",
+            "name": "event-to-date",
+            "type": "date_picker",
+            "instructions": "Date for Event",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_567bd47511280",
+            "label": "maps-single",
+            "name": "maps-single",
+            "type": "google_map",
+            "instructions": "Google Map",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": ""
+        }
+    ],
     "location": [
         [
             {
@@ -16,8 +89,8 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1530447539
+    "modified": 1530558558
 }

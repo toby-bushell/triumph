@@ -1,6 +1,15 @@
 
-.block-container {
-  
+.block-wrapper {
+  .blocks--2column {
+    margin-right: 5%;
+    margin-top: 0;
+  }
+
+  &:nth-of-type(2n + 1) {
+    .blocks--2column {
+      margin-right: 0;
+    }
+  }
 }
 
 .blocks {
@@ -51,6 +60,14 @@
     color: $yellow;
   }
 }
+
+.blocks--links {
+  a {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
 .blocks__text {
 	margin-bottom: 5px;
 }
@@ -108,4 +125,10 @@
     margin-right: 10px;
     color: $off-white;
   }
+}
+.block-btn {
+  display: block;
+  padding: 1em 2em;
+  background-color: $off-white;
+  color: $black;
 }

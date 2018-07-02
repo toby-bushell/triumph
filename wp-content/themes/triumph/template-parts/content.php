@@ -37,12 +37,12 @@
 			<?php $date = get_field('event-date');
 				if($date):
 					?>	<div class="event-when">
-							<p><?php echo $event;?></p>
+							<p><?php echo $date;?></p>
 						</div>
 				<?php endif; ?>
 
 			<!--End Date Formatting -->
-			<?php $date1 = get_field('event-to-date');
+      <?php $date1 = get_field('event-to-date');
 				if($date1):
 					?>	<div class="event-when event-when--to">
 							<p><?php echo $date1;?></p>

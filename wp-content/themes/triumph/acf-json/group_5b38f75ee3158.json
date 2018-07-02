@@ -159,6 +159,71 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "5b3a7e262ef03": {
+                    "key": "5b3a7e262ef03",
+                    "name": "link_list",
+                    "label": "Link List",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b3a7e352ef04",
+                            "label": "List name",
+                            "name": "list_name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b3a7e622ef05",
+                            "label": "Link Item",
+                            "name": "link_item",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "Add Link",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5b3a7e7d2ef07",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Row",
@@ -183,5 +248,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1530463991
+    "modified": 1530560290
 }

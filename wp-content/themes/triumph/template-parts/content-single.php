@@ -34,7 +34,7 @@
 			<?php $date = get_field('event-date');
 				if($date):
 					?>	<div class="event-when">
-              <p><?php echo $date?></p>
+              <p><?php echo $date; ?></p>
 						</div>
 				<?php endif; ?>
 													

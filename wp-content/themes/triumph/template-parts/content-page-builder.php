@@ -20,6 +20,10 @@ if( have_rows('options') ):
     
           endif;
 
+        elseif( get_row_layout() == 'link_list' ):
+
+          get_template_part( 'template-parts/page-builder/content', 'link-list' );
+
         endif;
 
     endwhile;
