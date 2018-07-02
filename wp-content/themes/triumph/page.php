@@ -22,7 +22,7 @@ get_header(); ?>
 		while ( have_posts() ) : the_post(); ?>
 
       <div class="container--slim">
-        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+        <?php the_title( '<h1 class="content-header">', '</h1>' ); ?>
         <?php the_content(); ?>
       </div>
 
