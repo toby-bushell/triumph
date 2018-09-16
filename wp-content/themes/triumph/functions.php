@@ -459,8 +459,8 @@ function twentysixteen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 add_filter( 'wp_get_attachment_image_attributes', 'twentysixteen_post_thumbnail_sizes_attr', 10 , 3 );
 
 function my_acf_init() {
-  $key = the_field('field_name','option');
-  
+  $key = get_field('google_api_key','option');
+
 	acf_update_setting('google_api_key', $key);
 }
 
