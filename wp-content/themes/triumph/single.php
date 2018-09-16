@@ -49,8 +49,10 @@ get_header(); ?>
 		?>
 
 	</main><!-- .site-main -->
-			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-			<script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/styles.js"></script>
+	  $key = the_field('field_name','option');
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo get_field('google_api_key','option');?>"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/styles.js"></script>
 	<?php get_sidebar( 'content-bottom' ); ?>
 
 </div><!-- .content-area -->
