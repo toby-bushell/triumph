@@ -16,7 +16,7 @@ get_header(); ?>
     
         $args = array(
           'post_type' 	=> 'items',
-          'order' 		=> 'ASC',
+          'order' 		=> 'DESC',
           'nopaging' 		=> false,
           'post_status'	=> 'publish',
           );
