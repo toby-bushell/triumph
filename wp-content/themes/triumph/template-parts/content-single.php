@@ -10,7 +10,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<? 			$event_title = get_field('event_title'); 
+		if($event_title) : ?>
+				<h1 class="entry-title"><?php echo $event_title; ?></h1>
+		<?php else : 
+				the_title( '<h1 class="entry-title">', '</h1>' );
+		endif; ?>
+
 	</header><!-- .entry-header -->
 
 

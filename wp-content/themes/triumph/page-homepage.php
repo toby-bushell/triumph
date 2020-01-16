@@ -89,60 +89,37 @@ get_header(); ?>
 		<?php endwhile;?>
 <?php wp_reset_query(); ?>
 	</div>	<!-- END OF EVENT SECTION -->
+			
+			<?php
 
-	<div class="section off-black">
-		<h2 class="section-header"><?php the_field('meeting-place');?></h2>
-			<div class="col-md-6 left-section-text">
-				<h3 class="content-header"><?php the_field('meeting-location');?></h3>
-				<?php the_field('meeting-place-text');?>
-			</div>
-			<div class="col-md-6">
-					<?php
-					$location = get_field('meeting-map');
+			if( have_rows('monthly_meetings') ):
 
-					if( !empty($location) ):?>
-					<div class="acf-map">
-						<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-					</div>
-					<?php endif; ?>
-			</div>
-	</div>
+				// loop through the rows of data
+					while ( have_rows('monthly_meetings') ) : the_row(); ?>
 
-	<?php if( get_field('meeting-place_2') ): ?>
-	<div class="section off-black">
-		<h2 class="section-header"><?php the_field('meeting-place_2');?></h2>
-			<div class="col-md-6 left-section-text">
-				<h3 class="content-header"><?php the_field('meeting-location_2');?></h3>
-				<?php the_field('meeting-place-text_2');?>
-			</div>
-			<div class="col-md-6">
-					<?php
-					$location2 = get_field('meeting-map_2');
-		
-					if( !empty($location2) ): ?>
-					<div class="acf-map">
-						<div class="marker" data-lat="<?php echo $location2['lat']; ?>" data-lng="<?php echo $location2['lng']; ?>"></div>
-					</div>
-					<?php endif; ?>
-			</div>
-	</div>
-	<?php endif; ?>
+						<div class="section off-black">
+							<h2 class="section-header"><?php the_sub_field('meeting_place');?></h2>
+								<div class="col-md-6 left-section-text">
+									<h3 class="content-header"><?php the_sub_field('meeting_location');?></h3>
+									<?php the_sub_field('meeting_place_information');?>
+								</div>
+								<div class="col-md-6">
+										<?php
+										$location = get_sub_field('meeting_map');
+										if( !empty($location) ):?>
+										<div class="acf-map">
+											<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+										</div>
+										<?php endif; ?>
+								</div>
+						</div>
 
+					<?php endwhile;
+				endif;
 
-
-<!--
-		<?php
-
-		while ( have_posts() ) : the_post();
-
-
-
-		endwhile;
-		?> -->
+			?>
 
 	</main><!-- .site-main -->
-
-
 
 </div><!-- .content-area -->
 

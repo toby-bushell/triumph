@@ -329,17 +329,13 @@ add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
 
 function triumph_scripts() {
 		wp_enqueue_script('scripts.js', get_template_directory_uri().'/js/scripts.js', false);
+		wp_deregister_script('jquery');
+   	wp_register_script('jquery', "https" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://code.jquery.com/jquery-1.11.0.min.js", false, null);
+   	wp_enqueue_script('jquery');
 
 }
 add_action( 'wp_enqueue_scripts', 'triumph_scripts' );
 
-
-function my_jquery_enqueue() {
-   wp_deregister_script('jquery');
-   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://code.jquery.com/jquery-1.11.0.min.js", false, null);
-   wp_enqueue_script('jquery');
-}
-my_jquery_enqueue();
 
 /**
  * Adds custom classes to the array of body classes.

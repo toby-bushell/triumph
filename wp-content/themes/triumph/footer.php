@@ -27,7 +27,7 @@
 		<div class="site-inner footer-content footer-content_section--left">
 			<p class="footer-content__section">South Essex Triumph Owners MCC Website</p>
 			<div class="footer-content__section footer-content_section--social">Follow us on <a href="https://www.facebook.com/groups/603108046486930/"><img src="<?php bloginfo('template_directory');?>/images/facebook.png"/></a></div>
-			<p class="footer-content__section made-by-boris">Made by <a href="http://www.borisdigital.co.uk" target="_blank">Boris Digital</a></p>
+			<!-- <p class="footer-content__section made-by-boris">Made by <a href="http://www.borisdigital.co.uk" target="_blank">Boris Digital</a></p> -->
 		</div>
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->

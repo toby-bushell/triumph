@@ -779,6 +779,7 @@ blockquote:after,
 	margin: 0 auto;
 	max-width: 1250px;
 	position: relative;
+	padding: 0 10px;
 }
 
 

@@ -3,8 +3,27 @@
     "title": "Events",
     "fields": [
         {
+            "key": "field_5e205bdc716a9",
+            "label": "Event Title",
+            "name": "event_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5675a0e8c2073",
-            "label": "event-location",
+            "label": "Event location",
             "name": "event-location",
             "type": "text",
             "instructions": "Event Location",
@@ -19,12 +38,11 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "formatting": "html",
             "maxlength": ""
         },
         {
             "key": "field_5675925f67ec9",
-            "label": "event-date",
+            "label": "Event date",
             "name": "event-date",
             "type": "date_picker",
             "instructions": "Date for Event",
@@ -35,13 +53,13 @@
                 "class": "",
                 "id": ""
             },
-            "first_day": 1,
+            "display_format": "d\/m\/Y",
             "return_format": "d\/m\/Y",
-            "display_format": "d\/m\/Y"
+            "first_day": 1
         },
         {
             "key": "field_5b3a783eddfd3",
-            "label": "event-to-date",
+            "label": "Event to date",
             "name": "event-to-date",
             "type": "date_picker",
             "instructions": "Date for Event",
@@ -58,7 +76,7 @@
         },
         {
             "key": "field_567bd47511280",
-            "label": "maps-single",
+            "label": "Map",
             "name": "maps-single",
             "type": "google_map",
             "instructions": "Google Map",
@@ -85,12 +103,12 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1530558558
+    "modified": 1579179020
 }

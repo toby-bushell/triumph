@@ -22,10 +22,6 @@ get_header(); ?>
 			// Include the single post content template.
 			get_template_part( 'template-parts/content', 'single' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) {
-				comments_template();
-			}
 
 			if ( is_singular( 'attachment' ) ) {
 				// Parent post navigation.
@@ -49,7 +45,6 @@ get_header(); ?>
 		?>
 
 	</main><!-- .site-main -->
-	  $key = the_field('field_name','option');
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo get_field('google_api_key','option');?>"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/styles.js"></script>

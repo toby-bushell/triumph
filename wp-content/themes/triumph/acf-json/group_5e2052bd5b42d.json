@@ -1,9 +1,9 @@
 {
-    "key": "group_5b38c6b33487a",
+    "key": "group_5e2052bd5b42d",
     "title": "Homepage",
     "fields": [
         {
-            "key": "field_567548f940a78",
+            "key": "field_5e2052bd5ebf8",
             "label": "slider-images",
             "name": "slider-images",
             "type": "gallery",
@@ -26,10 +26,11 @@
             "max_height": 0,
             "max_size": 0,
             "mime_types": "",
-            "insert": "append"
+            "insert": "append",
+            "return_format": "array"
         },
         {
-            "key": "field_5675ab519bf5f",
+            "key": "field_5e2052bd5ec27",
             "label": "events-header",
             "name": "events-header",
             "type": "text",
@@ -49,7 +50,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5676d447344c0",
+            "key": "field_5e2052bd5ec51",
             "label": "meeting-place",
             "name": "meeting-place",
             "type": "text",
@@ -69,7 +70,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5676d63887d01",
+            "key": "field_5e2052bd5ec7b",
             "label": "meeting-location",
             "name": "meeting-location",
             "type": "text",
@@ -89,7 +90,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5676d417d9134",
+            "key": "field_5e2052bd5eca4",
             "label": "meeting-place-text",
             "name": "meeting-place-text",
             "type": "wysiwyg",
@@ -108,7 +109,7 @@
             "delay": 0
         },
         {
-            "key": "field_5676da4aa2fd5",
+            "key": "field_5e2052bd5eccd",
             "label": "meeting-map",
             "name": "meeting-map",
             "type": "google_map",
@@ -126,7 +127,7 @@
             "height": ""
         },
         {
-            "key": "field_5bc511826f8ac",
+            "key": "field_5e2052bd5ecf6",
             "label": "meeting place 2",
             "name": "meeting-place_2",
             "type": "text",
@@ -145,7 +146,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5bc5119c6f8ad",
+            "key": "field_5e2052bd5ed20",
             "label": "meeting location 2",
             "name": "meeting-location_2",
             "type": "text",
@@ -164,7 +165,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5bc511a96f8ae",
+            "key": "field_5e2052bd5edf2",
             "label": "meeting place text 2",
             "name": "meeting-place-text_2",
             "type": "wysiwyg",
@@ -183,7 +184,7 @@
             "delay": 0
         },
         {
-            "key": "field_5bc511b66f8af",
+            "key": "field_5e2052bd5ee38",
             "label": "meeting map 2",
             "name": "meeting-map_2",
             "type": "google_map",
@@ -199,6 +200,102 @@
             "center_lng": "",
             "zoom": "",
             "height": ""
+        },
+        {
+            "key": "field_5e2052bd5ee65",
+            "label": "Monthly Meetings",
+            "name": "monthly_meetings",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5e2051d1761ca",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5e2052bd69218",
+                    "label": "Meeting Place",
+                    "name": "meeting_place",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5e2052bd69249",
+                    "label": "Meeting Location",
+                    "name": "meeting_location",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5e2052bd692ab",
+                    "label": "Meeting Place Information",
+                    "name": "meeting_place_information",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
+                    "key": "field_5e2052bd6930d",
+                    "label": "Meeting Map",
+                    "name": "meeting_map",
+                    "type": "google_map",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "center_lat": "",
+                    "center_lng": "",
+                    "zoom": "",
+                    "height": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -215,8 +312,10 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1539641798
+    "modified": 1579176941
 }
