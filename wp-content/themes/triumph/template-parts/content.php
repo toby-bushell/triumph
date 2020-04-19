@@ -18,8 +18,22 @@
 	</header><!-- .entry-header -->
 
 	<?php twentysixteen_excerpt(); ?>
+	<?php $featured_download = get_field('featured_download'); ?>
+
 	<div class="article-wrapper">
-	<?php twentysixteen_post_thumbnail(); ?>
+
+		<?php if($featured_download) : 
+			?>
+			<a class="post-thumbnail" href="<?php echo $featured_download['url'];?>" download >
+				<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => the_title_attribute( 'echo=0' ) ) ); ?>
+			</a>
+			<?php else : ?>
+			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+				<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => the_title_attribute( 'echo=0' ) ) ); ?>
+			</a>
+
+		<?php endif; ?>
+
 
 	<div class="entry-content">
 			<?php
@@ -32,23 +46,30 @@
 					</div>
 			<?php endif; ?>
 
+		<?php if($featured_download) : 
+				the_content('',FALSE,''); 
 
-			<!--Date Formatting -->
-			<?php $date = get_field('event-date');
-				if($date):
-					?>	<div class="event-when">
-							<p><?php echo $date;?></p>
-						</div>
-				<?php endif; ?>
+				$filesize_in_bytes = filesize( get_attached_file( $featured_download['id'] ) );
+				$filesize = formatSizeUnits($filesize_in_bytes); ?>
+					<a href= "<?php echo $featured_download['url'];?>" download>Download here (<?php echo $filesize; ?>)</a>
 
-			<!--End Date Formatting -->
-      <?php $date1 = get_field('event-to-date');
-				if($date1):
-					?>	<div class="event-when event-when--to">
-							<p><?php echo $date1;?></p>
-						</div>
-				<?php endif;
+		<?php else : ?>
 
+				<!--Date Formatting -->
+				<?php $date = get_field('event-date');
+					if($date):
+						?>	<div class="event-when">
+								<p><?php echo $date;?></p>
+							</div>
+					<?php endif; ?>
+
+				<!--End Date Formatting -->
+				<?php $date1 = get_field('event-to-date');
+					if($date1):
+						?>	<div class="event-when event-when--to">
+								<p><?php echo $date1;?></p>
+							</div>
+					<?php endif;
 
 			/* translators: %s: Name of current post */
 			the_content('',FALSE,'');?>
@@ -83,5 +104,6 @@
 		?>
 
 	</footer><!-- .entry-footer -->
+		<?php endif; ?>
 	</div>
 </article><!-- #post-## -->

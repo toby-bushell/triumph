@@ -38,9 +38,11 @@ get_header(); ?>
 		<!-- Query for homepage events, 3 next events after todays date -->
 			<?php
 				 $today = date('Ymd');
+					$featured_posts = get_featured_posts();
 
 					$args = array(
 					'nopaging' 			=> false,
+				'post__not_in'		=> $featured_posts['ids'],
 					'post_status' 		=> 'publish',
 					'posts_per_page' 	=> 3,
 					'meta_query' 		=> array(

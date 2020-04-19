@@ -1,0 +1,62 @@
+{
+    "key": "group_5e9c2c91cf927",
+    "title": "Events - sidebar",
+    "fields": [
+        {
+            "key": "field_5e9c2c9b032bb",
+            "label": "Pin to top",
+            "name": "pinned_event",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5e9c3297d17d0",
+            "label": "Featured Download (PDF for example)",
+            "name": "featured_download",
+            "type": "file",
+            "instructions": "If this is used, then on the Events list the featured Image when clicked will download this file. This will also mean there is no read more link, date etc when this post appears on the list of Events",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1587294972
+}

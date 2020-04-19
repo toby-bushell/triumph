@@ -26,7 +26,15 @@ get_header(); ?>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 			<?php endif; ?>
+			
 
+			<?php 
+
+			$featured_posts = get_featured_posts();
+						while($featured_posts['posts']->have_posts() ) : $featured_posts['posts']->the_post();
+							include get_template_directory() . '/template-parts/content.php';				
+						endwhile; wp_reset_query();
+				?>
 			<?php
 			// Start the loop.
 
@@ -34,7 +42,7 @@ get_header(); ?>
 
 					$args = array(
 					'paged'					 => $paged,
-
+					'post__not_in' => $featured_post_ids,
 					'meta_query' 		=> array(
 						array(
 							'key' 		=> 'event-date',
@@ -53,11 +61,6 @@ get_header(); ?>
 
 
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
 				get_template_part( 'template-parts/content', get_post_format() );
 
 			// End the loop.

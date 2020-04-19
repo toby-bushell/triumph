@@ -137,22 +137,22 @@ function twentysixteen_setup() {
 		'caption',
 	) );
 
-	/*
-	 * Enable support for Post Formats.
-	 *
-	 * See: https://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-		'gallery',
-		'status',
-		'audio',
-		'chat',
-	) );
+	// /*
+	//  * Enable support for Post Formats.
+	//  *
+	//  * See: https://codex.wordpress.org/Post_Formats
+	//  */
+	// add_theme_support( 'post-formats', array(
+	// 	'aside',
+	// 	'image',
+	// 	'video',
+	// 	'quote',
+	// 	'link',
+	// 	'gallery',
+	// 	'status',
+	// 	'audio',
+	// 	'chat',
+	// ) );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -327,11 +327,14 @@ add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
 * Extra Script for Triumph Theme
 */
 
+function my_jquery_enqueue() {
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', array(), null, false);
+}
+add_action('wp_enqueue_scripts', 'my_jquery_enqueue');
+
 function triumph_scripts() {
-		wp_enqueue_script('scripts.js', get_template_directory_uri().'/js/scripts.js', false);
-		wp_deregister_script('jquery');
-   	wp_register_script('jquery', "https" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://code.jquery.com/jquery-1.11.0.min.js", false, null);
-   	wp_enqueue_script('jquery');
+		wp_enqueue_script('scripts.js', get_template_directory_uri().'/js/scripts.js', array('jquery'), null, true);
 
 }
 add_action( 'wp_enqueue_scripts', 'triumph_scripts' );
@@ -470,5 +473,52 @@ if( function_exists('acf_add_options_page') ) {
       'menu_title'  => 'Site Options',
       'menu_slug'   => 'Site-Options',
   ));
+
+}
+
+function formatSizeUnits($bytes)
+	{
+			if ($bytes >= 1073741824)
+			{
+					$bytes = number_format($bytes / 1073741824, 2) . ' GB';
+			}
+			elseif ($bytes >= 1048576)
+			{
+					$bytes = number_format($bytes / 1048576, 2) . ' MB';
+			}
+			elseif ($bytes >= 1024)
+			{
+					$bytes = number_format($bytes / 1024, 2) . ' KB';
+			}
+			elseif ($bytes > 1)
+			{
+					$bytes = $bytes . ' bytes';
+			}
+			elseif ($bytes == 1)
+			{
+					$bytes = $bytes . ' byte';
+			}
+			else
+			{
+					$bytes = '0 bytes';
+			}
+
+			return $bytes;
+		}
+
+function get_featured_posts(){
+	// Get the pinned/featured items
+			$args = array(
+				'meta_query' => array(
+						array(
+								'key' => 'pinned_event',
+								'value' => '1',
+								'compare' => '=',
+						)
+				)
+			);
+			$featured = new WP_Query($args);
+			$featured_post_ids = wp_list_pluck( $featured->posts, 'ID' );
+			return array('ids' => $featured_post_ids, 'posts' => $featured);
 
 }
